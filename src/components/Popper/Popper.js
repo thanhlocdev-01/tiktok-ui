@@ -4,12 +4,12 @@ import styles from './Popper.module.scss';
 
 const cx = classNames.bind(styles);
 
-function Wrapper({ children, className }) {
+function Popper({ children, className }) {
     return <div className={cx('wrapper', className)}>{children}</div>;
 }
 
-Wrapper.propTypes = {
+Popper.propTypes = {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
 }
-export default Wrapper;
+export default Popper;

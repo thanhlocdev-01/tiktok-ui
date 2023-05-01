@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
 import { useState } from 'react';
 
-import { wrapper as PopperWrapper } from '~/components/Popper';
+import Popper from '~/components/Popper';
 import MenuItem from './MenuItem';
 import Header from './Header';
 import styles from './Menu.module.scss';
@@ -41,7 +41,7 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn,
 
     const renderResult = (attrs) => (
         <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
-            <PopperWrapper className={cx('menu-popper')}>
+            <Popper className={cx('menu-popper')}>
                 {history.length > 1 && (
                     <Header
                         title={current.title}
@@ -49,7 +49,7 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn,
                     />
                 )}
                 <div className={cx('menu-body')}>{renderItems()}</div>
-            </PopperWrapper>
+            </Popper>
         </div>
     )
     
