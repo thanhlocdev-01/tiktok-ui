@@ -57,7 +57,7 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
-    const currentUser = true;
+    const currentUser = false;
 
     //Handle logic
     const handleMenuChange = (menuItem) => {
@@ -106,11 +106,12 @@ function Header() {
                 <div className={cx('actions')}>
                     {currentUser ? (
                         <>
-                            <Tippy delay={[0, 50]} content="Upload video" placement="bottom">
-                                <button className={cx('action-btn')}>
+                            <div className={cx('upload')}>
+                                <button className={cx('upload-btn')}>
                                     <UploadIcon />
+                                    <span className={cx('upload-title')}>Upload</span>
                                 </button>
-                            </Tippy>
+                            </div>
                             <Tippy delay={[0, 50]} content="Message" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <MessageIcon />
@@ -125,7 +126,14 @@ function Header() {
                         </>
                     ) : (
                         <>
-                            <Button text>Upload</Button>
+                            <Button >
+                                <div className={cx('upload')}>
+                                    <button className={cx('upload-btn')}>
+                                        <UploadIcon />
+                                        <span className={cx('upload-title')}>Upload</span>
+                                    </button>
+                                </div>
+                            </Button>
                             <Button primary>Log in</Button>
                         </>
                     )}
